@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lawencon International</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- FontAwesome CDN for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f7ff;
+      color: #212529;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: #0a0a23;
+      margin-bottom: 1rem;
+    }
+
+    /* Navbar */
+    nav.navbar {
+      background-color: #fff;
+      box-shadow: 0 0 15px rgb(0 0 0 / 0.1);
+      padding: 0.75rem 0;
+    }
+    nav.navbar .navbar-brand img {
+      height: 40px;
+    }
+    nav.navbar .nav-link {
+      color: #212529;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    nav.navbar .nav-link:hover,
+    nav.navbar .nav-link:focus {
+      color: #0d6efd;
+    }
+    nav.navbar .btn-outline-primary {
+      border-radius: 25px;
+      font-weight: 600;
+      padding: 0.4rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    nav.navbar .btn-outline-primary:hover {
+      background-color: #0d6efd;
+      color: white;
+      border-color: #0d6efd;
+    }
+    nav.navbar .flag-icon {
+      width: 24px;
+      height: 16px;
+      margin-right: 0.4rem;
+      border-radius: 3px;
+      object-fit: cover;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background-color: #f0f7ff;
+      padding: 4rem 1rem 6rem;
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      border-radius: 50% 0 0 50% / 100% 0 0 100%;
+      overflow: visible;
+      position: relative;
+      z-index: 0;
+    }
+    .hero-text {
+      flex: 1 1 50%;
+      max-width: 600px;
+    }
+    .hero-text small {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #ffb547;
+      background-color: #fff3db;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .hero-text h1 {
+      font-size: 2.75rem;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .hero-text p {
+      font-weight: 500;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      max-width: 520px;
+      margin-bottom: 2rem;
+      color: #212529;
+    }
+    .hero-image {
+      flex: 1 1 40%;
+      max-width: 450px;
+      overflow: hidden;
+      border-radius: 140px 0 0 140px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 140px 0 0 140px;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.1);
+    }
+
+    /* Our Story Section */
+    .our-story {
+      max-width: 1140px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .our-story h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0a0a23;
+    }
+    .our-story p {
+      font-weight: 500;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem auto;
+      color: #212529;
+    }
+
+    /* Carousel styling based on screenshots */
+    #ourStoryCarousel {
+      max-width: 1140px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+    }
+
+    #ourStoryCarousel .carousel-inner {
+      height: 300px; /* Fixed height to match screenshot */
+      border-radius: 12px;
+    }
+
+    #ourStoryCarousel .carousel-item img {
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    /* Info Cards Section */
+    .info-cards {
+      background-color: #0a1e47;
+      padding: 4rem 1rem 3rem;
+      color: white;
+    }
+    .info-cards-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .info-card {
+      background-color: white;
+      color: #0a1e47;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      flex: 1 1 350px;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.1);
+      min-width: 300px;
+    }
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #fca311;
+    }
+    .info-card h3 svg {
+      width: 28px;
+      height: 28px;
+      fill: #fca311;
+    }
+    .info-card p {
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #212529;
+    }
+
+    /* Call to Action Banner */
+    .cta-banner {
+      max-width: 1140px;
+      margin: 2rem auto 4rem;
+      background-color: #bfd9ff;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      color: #0a1e47;
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.07);
+    }
+    .cta-banner button {
+      background-color: #0a1e47;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.6rem;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cta-banner button:hover {
+      background-color: #073165;
+    }
+
+    /* Our Clients Section */
+    .clients-section {
+      max-width: 1140px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .clients-section h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0a0a23;
+    }
+    .clients-section p {
+      font-weight: 500;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem auto;
+      color: #212529;
+    }
+    .clients-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 3rem;
+      align-items: center;
+      filter: grayscale(0.2);
+      opacity: 0.8;
+    }
+    .clients-logos img {
+      max-height: 70px;
+      max-width: 120px;
+      object-fit: contain;
+      filter: grayscale(0);
+      opacity: 1;
+      transition: transform 0.3s ease;
+    }
+    .clients-logos img:hover {
+      transform: scale(1.05);
+      filter: none;
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    /* Location Section */
+    .location-section {
+      background-color: #0a1e47;
+      color: white;
+      padding: 4rem 2rem 5rem;
+      max-width: 1140px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+    .map-container {
+      flex: 1 1 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 300px;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.2);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .location-info {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-left: 1rem;
+    }
+    .location-info h3 {
+      color: #fca311;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .location-info p {
+      color: white;
+      font-weight: 500;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-icons a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      background-color: white;
+      border-radius: 8px;
+      color: #0a1e47;
+      text-decoration: none;
+      font-size: 22px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .social-icons a:hover {
+      background-color: #fca311;
+      color: white;
+    }
+
+    /* Footer Section */
+    footer.footer-main {
+      background-color: #0a1e47;
+      color: white;
+      padding: 3rem 2rem;
+      font-size: 0.95rem;
+      max-width: 1140px;
+      margin: 0 auto 2rem;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 3rem;
+      justify-content: space-between;
+      border-radius: 12px;
+    }
+
+    .footer-logo {
+      flex: 0 0 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo img {
+      max-width: 140px;
+      height: auto;
+    }
+
+    .footer-info {
+      flex: 1 1 450px;
+      font-weight: 500;
+      line-height: 1.6;
+      padding-right: 1rem;
+    }
+
+    .footer-links {
+      flex: 0 0 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-links h5 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Footer & Location */
+    @media (max-width: 768px) {
+      footer.footer-main {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+      }
+
+      .location-section {
+        flex-direction: column;
+        padding: 3rem 1rem 4rem;
+      }
+
+      .location-info {
+        padding-left: 0;
+      }
+    }
+
+    /* Copyright Bottom Bar */
+    .copyright-bar {
+      background-color: #e1e5ee;
+      color: #0a1e47;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 1rem;
+      border-radius: 0 0 12px 12px;
+      max-width: 1140px;
+      margin: 0 auto 3rem auto;
+
+      font-style: normal; /* supaya tidak miring */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="Pict/Lawencon 1.png" alt="Lawencon" height="40" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto align-items-center">
+
+        <!-- Search form -->
+        <form class="d-flex me-3" role="search" onsubmit="event.preventDefault(); alert('Search query: ' + this.query.value);">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="query"
+            required
+            style="min-width: 200px;"
+          />
+          <button class="btn btn-outline-primary" type="submit" aria-label="Search button">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+
+        <li class="nav-item"><a class="nav-link" href="#">Klien</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="companyDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Company
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="companyDropdown">
+            <li><a class="dropdown-item" href="#">Profil</a></li>
+            <li><a class="dropdown-item" href="#">Karir</a></li>
+          </ul>
+        </li>
+        <li class="nav-item d-flex align-items-center ms-3">
+          <img src="https://flagcdn.com/id.svg" alt="Indonesia" style="width:24px; height:16px;" class="me-1" />
+          <span class="dropdown-toggle nav-link" style="cursor:pointer;">ID</span>
+        </li>
+        <li class="nav-item ms-3">
+          <a href="tel:+6282155048196" class="btn btn-outline-primary d-flex align-items-center gap-2">
+            <i class="fas fa-phone"></i> Hubungi Kami
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-text">
+    <small>About Us</small>
+    <h1>Our Story</h1>
+    <p>
+      Lawencon sebagai perusahaan IT yang mendedikasikan diri untuk terus belajar,
+      melayani sehingga membantu bisnis klien bertransformasi dan bercita-cita untuk membuat perubahan.
+    </p>
+  </div>
+  <div class="hero-image">
+    <img src="/Pict/Lawencon 2.png" alt="Lawencon Office" />
+  </div>
+</section>
+
+<!-- Our Story Extended -->
+<section class="our-story">
+  <h2>Our Story</h2>
+  <p>
+    Tim kami terdiri dari para ahli yang berdedikasi dan berpengalaman dalam berbagai disiplin ilmu teknologi, manajemen proyek, dan analisis.
+    Keberagaman latar belakang ini memungkinkan kami untuk dapat memberikan layanan teknologi yang unggul kepada klien.
+  </p>
+
+  <!-- Bootstrap Carousel for Our Story Images -->
+  <div id="ourStoryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="hover">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#ourStoryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#ourStoryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#ourStoryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#ourStoryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#ourStoryCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/Pict/Office1.jpg" class="d-block w-100" alt="Office 1" />
+      </div>
+      <div class="carousel-item">
+        <img src="Pict/Office2.jpg" class="d-block w-100" alt="Office 2" />
+      </div>
+      <div class="carousel-item">
+        <img src="/Pict/Office3.jpg" class="d-block w-100" alt="Office 3" />
+      </div>
+      <div class="carousel-item">
+        <img src="Pict/Workingview.jpg" class="d-block w-100" alt="Working View" />
+      </div>
+      <div class="carousel-item">
+        <img src="Pict/Team.jpg" class="d-block w-100" alt="Team" />
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#ourStoryCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#ourStoryCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<!-- Info Cards -->
+<section class="info-cards">
+  <div class="info-cards-container">
+    <div class="info-card">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.64 2.6a1 1 0 0 0-1.28 0l-6.17 5.7a1 1 0 0 0 0 1.42l6.18 5.71a1 1 0 0 0 1.27 0l6.17-5.7a1 1 0 0 0 0-1.43zM9.76 7.12v4.38l-3.14-2.9zm4.42 5.11-3.26 3.01v-4.43l3.14 2.9zm3.53-2.45-3.44 3.19-3.44-3.19 3.44-3.18z"/></svg>
+        Visi Kami
+      </h3>
+      <p>
+        Visi kami adalah menjadi penyedia solusi TI terpadu terkemuka di Indonesia, dengan mengutamakan kualitas, profesionalisme, keandalan, dan inovasi teknologi. Kami memberikan solusi TI praktis yang dirancang untuk mengatasi tantangan bisnis Anda yang paling krusial.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.64 2.6a1 1 0 0 0-1.28 0l-6.17 5.7a1 1 0 0 0 0 1.42l6.18 5.71a1 1 0 0 0 1.27 0l6.17-5.7a1 1 0 0 0 0-1.43zM9.76 7.12v4.38l-3.14-2.9zm4.42 5.11-3.26 3.01v-4.43l3.14 2.9zm3.53-2.45-3.44 3.19-3.44-3.19 3.44-3.18z"/></svg>
+        Konsultan Kami
+      </h3>
+      <p>
+        Konsultan kami memiliki pemahaman yang mendalam tentang proses bisnis dengan pengetahuan industri yang luas dan keahlian teknologi.
+      </p>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <span>Sempurnakan bisnis Anda dengan layanan terbaik kami</span>
+    <button>
+      Hubungi Kami <i class="fa fa-phone"></i>
+    </button>
+  </div>
+</section>
+
+<!-- Our Clients -->
+<section class="clients-section">
+  <h2>Our Clients</h2>
+  <p>
+    Kami memiliki banyak klien dari lintas sektor industri, mulai dari manufaktur dan perbankan hingga kesehatan dan pendidikan, menunjukkan keahlian kami dalam memberikan solusi teknologi yang disesuaikan dengan kebutuhan spesifik setiap sektor.
+  </p>
+
+  <div class="clients-logos">
+    <img src="/Pict/Pertamina.jpg" alt="Pertamina" />
+    <img src="/Pict/BCA.jpg" alt="BCA" />
+    <img src="/Pict/Shopee.jpg" alt="Shopee" />
+    <img src="/Pict/Mucoindo.jpg" alt="Mucoindo" />
+    <img src="/Pict/Gojek.png" alt="Gojek" />
+    <img src="Pict/Freeport.jpg" alt="Freeport" />
+    <img src="/Pict/Al-Azhar.png" alt="Al-Azhar" />
+    <img src="Pict/BUMN.jpg" alt="BUMN" />
+    <img src="Pict/Umyogya.png" alt="UMY" />
+    <img src="Pict/McDonald's.png" alt="MCD" />
+    <img src="Pict/Pizza.jpg" alt="Pizza" />
+    <img src="Pict/Tokopedia.jpg" alt="Tokopedia" />
+  </div>
+</section>
+
+<!-- Location Section -->
+<section class="location-section">
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2595122546784!2d106.83685997501654!3d-6.236848695512906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f40f1e6e362b%3A0x22c2d996cd4a16a7!2sPT%20Lawencon%20Internasional%20-%20IT%20Consultant%20%26%20Software%20Development%20Company!5e0!3m2!1sen!2sid!4v1684708545814!5m2!1sen!2sid"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Lokasi Lawencon"
+    ></iframe>
+  </div>
+
+  <div class="location-info">
+    <h3>Lokasi Kami</h3>
+    <p>
+      Pakuwon Tower, Jl Casablanca No.Kav 88 22nd floor, Menteng Dalam, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12870
+    </p>
+
+    <h3>Temui Kami di Sosial Media</h3>
+    <div class="social-icons">
+      <a href="https://facebook.com/lawencon" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/lawencon" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/company/lawencon" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer-main">
+  <div class="footer-logo">
+    <img src="/Pict/Lawencon 3.png" alt="Lawencon Logo" /> 
+  </div>
+
+  <div class="footer-info">
+    <p>
+      Lawencon is established as IT Company in 2009 by a team of professionals who have exposure to and are comfortable with enterprise business management solution software.<br />
+      Disclaimer: All images are copyrighted to their respective owners. All content cited is derived from their respective sources.
+    </p>
+  </div>
+
+  <div class="footer-links">
+    <h5>Contact Us</h5>
+    <a href="tel:+622128542549"><i class="fas fa-phone"></i> (021) 28542549</a>
+    <a href="mailto:contact@lawencon.com"><i class="fas fa-envelope"></i> contact@lawencon.com</a>
+    <a href="https://goo.gl/maps/qY5ak8W3Sh1VeTPE6" target="_blank"><i class="fas fa-map-marker-alt"></i> Pakuwon Tower, Jl Casablanca No.Kav 88 22nd floor, Menteng Dalam, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12870</a>
+  </div>
+</footer>
+
+<div class="copyright-bar">
+  Copyrights © 2009-2024 Lawencon International - All Rights Reserved.
+</div>
+
+<!-- Bootstrap Bundle with Popper.js -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+</body>
+</html>
